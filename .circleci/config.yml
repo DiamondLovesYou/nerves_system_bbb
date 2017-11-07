@@ -101,6 +101,9 @@ jobs:
           name: "Create artifact dir"
           command: mkdir -p /nerves/deploy/test/artifacts
       - run:
+          name: "Run nerves system linter"
+          command: mix nerves.system.lint nerves_defconfig
+      - run:
           name: Create build context
           command: >
             mix json.encode
